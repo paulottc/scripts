@@ -1,0 +1,93 @@
+#!/bin/bash
+  
+echo "1 - R1"
+echo "2 - R2"
+echo "3 - R3"
+echo "4 - R4"
+echo "5 - R5"
+read op
+  
+if [ $op == "1" ]; then
+ 
+#R1
+  
+route add -net 10.0.12.0 netmask 255.255.255.0 gw 10.0.11.2 dev eth1
+route add -net 10.0.13.0 netmask 255.255.255.0 gw 10.0.11.2 dev eth1
+route add -net 10.0.14.0 netmask 255.255.255.0 gw 10.0.11.2 dev eth1
+route add -net 10.0.15.0 netmask 255.255.255.0 gw 10.0.11.2 dev eth1
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.11.2 dev eth1
+ 
+echo 1 > /proc/sys/net/ipv4/ip_forward
+  
+fi
+  
+if [ $op == "2" ]; then
+  
+#R2
+ 
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.11.1 dev eth0
+route add -net 10.0.14.0 netmask 255.255.255.0 gw 10.0.13.2 dev eth1
+route add -net 10.0.15.0 netmask 255.255.255.0 gw 10.0.13.2 dev eth1
+route add -net 10.0.14.0 netmask 255.255.255.0 gw 10.0.12.2 dev eth2
+route add -net 10.0.15.0 netmask 255.255.255.0 gw 10.0.12.2 dev eth2
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.13.2 dev eth1
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.12.2 dev eth2
+  
+echo 1 > /proc/sys/net/ipv4/ip_forward
+ 
+fi
+  
+if [ $op == "3" ]; then
+  
+#R3
+ 
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.13.1 dev eth1
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.13.1 dev eth1
+route add -net 10.0.11.0 netmask 255.255.255.0 gw 10.0.13.1 dev eth1
+route add -net 10.0.12.0 netmask 255.255.255.0 gw 10.0.13.1 dev eth1
+route add -net 10.0.15.0 netmask 255.255.255.0 gw 10.0.13.1 dev eth1
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.14.2 dev eth0
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.14.2 dev eth0
+route add -net 10.0.11.0 netmask 255.255.255.0 gw 10.0.14.2 dev eth0
+route add -net 10.0.12.0 netmask 255.255.255.0 gw 10.0.14.2 dev eth0
+route add -net 10.0.15.0 netmask 255.255.255.0 gw 10.0.14.2 dev eth0
+ 
+echo 1 > /proc/sys/net/ipv4/ip_forward
+ 
+fi
+  
+if [ $op == "4" ]; then
+  
+#R4
+ 
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.14.1 dev eth1
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.14.1 dev eth1
+route add -net 10.0.11.0 netmask 255.255.255.0 gw 10.0.14.1 dev eth1
+route add -net 10.0.12.0 netmask 255.255.255.0 gw 10.0.14.1 dev eth1
+route add -net 10.0.13.0 netmask 255.255.255.0 gw 10.0.14.1 dev eth1
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.15.2 dev eth0
+route add -net 172.16.2.0 netmask 255.255.255.0 gw 10.0.15.2 dev eth0
+route add -net 10.0.11.0 netmask 255.255.255.0 gw 10.0.15.2 dev eth0
+route add -net 10.0.12.0 netmask 255.255.255.0 gw 10.0.15.2 dev eth0
+route add -net 10.0.13.0 netmask 255.255.255.0 gw 10.0.15.2 dev eth0
+  
+echo 1 > /proc/sys/net/ipv4/ip_forward
+ 
+fi
+  
+if [ $op == "5" ]; then
+  
+#R5
+ 
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.12.1 dev eth2
+route add -net 172.16.1.0 netmask 255.255.255.0 gw 10.0.15.1 dev eth1
+route add -net 10.0.11.0 netmask 255.255.255.0 gw 10.0.12.1 dev eth2
+route add -net 10.0.13.0 netmask 255.255.255.0 gw 10.0.12.1 dev eth2
+route add -net 10.0.14.0 netmask 255.255.255.0 gw 10.0.12.1 dev eth2
+route add -net 10.0.11.0 netmask 255.255.255.0 gw 10.0.15.1 dev eth1
+route add -net 10.0.13.0 netmask 255.255.255.0 gw 10.0.15.1 dev eth1
+route add -net 10.0.14.0 netmask 255.255.255.0 gw 10.0.15.1 dev eth1
+ 
+echo 1 > /proc/sys/net/ipv4/ip_forward
+  
+fi
