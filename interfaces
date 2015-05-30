@@ -1,0 +1,241 @@
+#!/bin/bash
+echo "MENU"
+echo "1 - dinamico"
+echo "2 - estatico"
+read op
+  
+if [ $op == "1" ]; then
+  
+echo "" > /etc/network/interfaces
+  
+echo "# This file describes the network interfaces available on your system" >> /etc/network/interfaces
+echo "# and how to activate them. For more information, see interfaces(5)." >> /etc/network/interfaces
+  
+echo "# The loopback network interface" >> /etc/network/interfaces
+echo "auto lo" >> /etc/network/interfaces
+echo "iface lo inet loopback" >> /etc/network/interfaces
+  
+echo "# The primary network interface" >> /etc/network/interfaces
+echo "allow-hotplug eth0" >> /etc/network/interfaces
+echo "iface eth0 inet dhcp" >> /etc/network/interfaces
+  
+  
+service networking restart
+ifup eth0
+ifdown eth1
+ifdown eth2
+  
+clear
+ifconfig
+fi
+  
+  
+if [ $op == "2" ]; then
+          
+    clear
+        echo "" > /etc/network/interfaces
+    echo "MENU"
+    echo "" > /etc/network/interfaces
+      
+    echo "1 - R1"
+    echo "2 - R2"
+    echo "3 - R3"
+    echo "4 - R4"
+    echo "5 - R5"
+    read x
+          
+    if [ $x == "1" ]; then
+            echo "" > /etc/network/interfaces
+  
+            echo "# This file describes the network interfaces available on your system" >> /etc/network/interfaces
+            echo "# and how to activate them. For more information, see interfaces(5)." >> /etc/network/interfaces
+  
+            echo "" >> /etc/network/interfaces
+  
+            echo "# The loopback network interface" >> /etc/network/interfaces
+            echo "auto lo" >> /etc/network/interfaces
+            echo "iface lo inet loopback" >> /etc/network/interfaces
+  
+            echo "" >> /etc/network/interfaces
+  
+            echo "# The primary network interface" >> /etc/network/interfaces
+            echo "allow-hotplug eth0" >> /etc/network/interfaces
+            echo "" >> /etc/network/interfaces
+            echo " auto eth0" >> /etc/network/interfaces
+            echo "iface eth0 inet static" >> /etc/network/interfaces
+            echo "address 172.16.1.2 " >> /etc/network/interfaces
+            echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+  
+            echo "" >> /etc/network/interfaces
+            echo " auto eth1" >> /etc/network/interfaces
+            echo "iface eth1 inet static" >> /etc/network/interfaces
+            echo "address 10.0.11.1 " >> /etc/network/interfaces
+            echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+            service networking restart
+  
+            clear
+            ifconfig
+  
+    fi
+  
+    if [ $x == "2" ]; then
+              
+            echo "" > /etc/network/interfaces
+  
+            echo "# This file describes the network interfaces available on your system" >> /etc/network/interfaces
+            echo "# and how to activate them. For more information, see interfaces(5)." >> /etc/network/interfaces
+      
+            echo "" >> /etc/network/interfaces
+  
+            echo "# The loopback network interface" >> /etc/network/interfaces  
+            echo "auto lo" >> /etc/network/interfaces
+            echo "iface lo inet loopback" >> /etc/network/interfaces
+  
+            echo "" >> /etc/network/interfaces
+  
+            echo "# The primary network interface" >> /etc/network/interfaces
+            echo "allow-hotplug eth0" >> /etc/network/interfaces
+  
+  
+            echo "" >> /etc/network/interfaces
+            echo " auto eth0" >> /etc/network/interfaces
+            echo "iface eth0 inet static" >> /etc/network/interfaces
+            echo "address 10.0.11.2 " >> /etc/network/interfaces
+            echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+            echo "" >> /etc/network/interfaces
+            echo " auto eth1" >> /etc/network/interfaces
+            echo "iface eth1 inet static" >> /etc/network/interfaces
+            echo "address 10.0.13.1 " >> /etc/network/interfaces
+            echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+  
+  
+            echo "" >> /etc/network/interfaces
+            echo " auto eth2" >> /etc/network/interfaces
+            echo "iface eth2 inet static" >> /etc/network/interfaces
+            echo "address 10.0.12.1 " >> /etc/network/interfaces
+            echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+                service networking restart
+  
+                clear
+                ifconfig
+  
+        fi
+      
+    if [ $x == "3" ]; then
+  
+        echo "" > /etc/network/interfaces
+  
+        echo "# This file describes the network interfaces available on your system" >> /etc/network/interfaces 
+        echo "# and how to activate them. For more information, see interfaces(5)." >> /etc/network/interfaces
+  
+        echo "" >> /etc/network/interfaces
+  
+        echo "# The loopback network interface" >> /etc/network/interfaces
+        echo "auto lo" >> /etc/network/interfaces
+        echo "iface lo inet loopback" >> /etc/network/interfaces
+  
+        echo "" >> /etc/network/interfaces
+  
+        echo "# The primary network interface" >> /etc/network/interfaces
+        echo "allow-hotplug eth0" >> /etc/network/interfaces
+        echo "" >> /etc/network/interfaces
+        echo " auto eth0" >> /etc/network/interfaces
+        echo "iface eth0 inet static" >> /etc/network/interfaces
+        echo "address 10.0.14.1 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+  
+        echo "" >> /etc/network/interfaces
+        echo " auto eth1" >> /etc/network/interfaces
+        echo "iface eth1 inet static" >> /etc/network/interfaces
+        echo "address 10.0.13.2 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+        service networking restart
+  
+        clear
+        ifconfig
+  
+        fi
+      
+    if [ $x == "4" ]; then
+          
+        echo "" >> /etc/network/interfaces
+  
+        echo "# The loopback network interface" >> /etc/network/interfaces
+        echo "auto lo" >> /etc/network/interfaces
+        echo "iface lo inet loopback" >> /etc/network/interfaces
+  
+        echo "" >> /etc/network/interfaces
+  
+        echo "# The primary network interface" >> /etc/network/interfaces
+        echo "allow-hotplug eth0" >> /etc/network/interfaces
+        echo "" >> /etc/network/interfaces
+        echo " auto eth0" >> /etc/network/interfaces
+        echo "iface eth0 inet static" >> /etc/network/interfaces
+        echo "address 10.0.15.1 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+  
+        echo "" >> /etc/network/interfaces
+        echo " auto eth1" >> /etc/network/interfaces
+        echo "iface eth1 inet static" >> /etc/network/interfaces
+        echo "address 10.0.14.2 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+        service networking restart
+  
+        clear
+        ifconfig
+  
+        fi
+  
+    if [ $x == "5" ]; then
+  
+        echo "" >> /etc/network/interfaces
+  
+        echo "# The loopback network interface" >> /etc/network/interfaces
+        echo "auto lo" >> /etc/network/interfaces
+        echo "iface lo inet loopback" >> /etc/network/interfaces
+  
+        echo "" >> /etc/network/interfaces
+  
+        echo "# The primary network interface" >> /etc/network/interfaces
+        echo "allow-hotplug eth0" >> /etc/network/interfaces
+  
+  
+        echo "" >> /etc/network/interfaces
+        echo " auto eth0" >> /etc/network/interfaces
+        echo "iface eth0 inet static" >> /etc/network/interfaces
+        echo "address 172.16.2.2 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+  
+        echo "" >> /etc/network/interfaces
+        echo " auto eth1" >> /etc/network/interfaces
+        echo "iface eth1 inet static" >> /etc/network/interfaces
+        echo "address 10.0.15.2 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+  
+  
+        echo "" >> /etc/network/interfaces
+        echo " auto eth2" >> /etc/network/interfaces
+        echo "iface eth2 inet static" >> /etc/network/interfaces
+        echo "address 10.0.12.2 " >> /etc/network/interfaces
+        echo "netmask 255.255.255.0" >> /etc/network/interfaces
+  
+        service networking restart
+  
+                clear
+                ifconfig
+  
+  
+        fi
+  
+fi
